@@ -1,0 +1,120 @@
+.heading-section {
+    padding: 100px;
+    padding-bottom: 150px;
+    background: linear-gradient(to right, rgb(2, 228, 171), rgb(74, 215, 240));
+
+    .title {
+        font-weight: bold;
+        color: white;
+        text-shadow: 0px 1px 2px rgba(black, 0.12);
+    }
+}
+
+.container {
+    max-width: 800px !important;
+
+    .add-todo-box {
+        padding: 25px;
+        border-radius: 4px;
+        position: relative;
+        bottom: 3rem;
+        background: white;
+        box-shadow: 0 4px 12px rgba(black, 0.2);
+    }
+}
+
+.todo_item {
+    display: flex;
+    gap: 10px;
+    font-size: 18px;
+    align-items: center;
+    padding: 35px 15px;
+    border-bottom: 1px solid #d3d3d3c2;
+    cursor: pointer;
+    position: relative;
+    &.completed {
+        color: #aaa;
+
+        .check_box {
+            background: rgb(11, 223, 170);
+            border-color: rgb(11, 223, 170);
+
+            i {
+                opacity: 1;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .check_box {
+        display: flex;
+        flex-shrink: 0;
+        border: 2px solid #d3d3d3c2;
+        border-radius: 50%;
+        width: 28px;
+        height: 28px;
+
+        i {
+            font-size: 20px;
+            opacity: 0;
+            color: #333;
+        }
+    }
+
+    &:hover {
+        .check_box {
+            i {
+                opacity: 0.28;
+                transition: background-color 0.2s;
+            }
+        }
+        .action_btn{
+            visibility: visible;
+            opacity: 1;
+            transition-delay: 0.4s;
+            transform: translateY(2px);
+        }
+    }
+
+    .action_btn {
+        position: absolute;
+        right: 5px;
+        bottom: 0;
+        display: flex;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+        .edit_btn {
+            background: #ddd9d9c2;
+            padding: 7px 10px;
+            display: flex;
+
+            i {
+                font-size: 20px;
+                color: #333;
+            }
+
+            &:hover {
+                background: #d3d3d3c2;
+                color: #555;
+            }
+
+            &:active {
+                background: #9cbccd;
+            }
+
+            &:first-of-type {
+                border-top-left-radius: 7px;
+            }
+
+            &:last-of-type {
+                border-top-right-radius: 7px;
+                &:hover{
+                    i{
+                        color: red;
+                    }
+                }
+            }
+        }
+    }
+}
