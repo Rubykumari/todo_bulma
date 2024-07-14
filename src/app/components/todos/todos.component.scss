@@ -40,7 +40,7 @@
             border-color: rgb(11, 223, 170);
 
             i {
-                opacity: 1;
+                opacity: 1!important;
                 font-weight: bold;
             }
         }
@@ -55,7 +55,7 @@
         height: 28px;
 
         i {
-            font-size: 20px;
+            font-size: 23px;
             opacity: 0;
             color: #333;
         }

@@ -7,7 +7,8 @@
             <h2 class="title is-5 mb-3">New Todo</h2>
             <div class="field is-grouped">
                 <p class="control is-expanded">
-                    <input class="input" type="text" placeholder="Type todo text here ..." ngModel name="text">
+                    <input class="input" type="text" placeholder="Type todo text here ..." ngModel #textField="ngModel"
+                        name="text" required minlength="2">
                 </p>
                 <p class="control">
                     <button class="button common_btn">
@@ -15,6 +16,10 @@
                         Add
                     </button>
                 </p>
+            </div>
+            <div *ngIf="textField.invalid">
+                <!-- <p class="help is-danger" *ngIf="textField.value == null">Please enter text of your Todo</p> -->
+                <p class="help is-danger" *ngIf="textField.value < 3">Todo text must be at least 2 character</p>
             </div>
         </form>
     </div>
@@ -36,22 +41,6 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="todo_item">
-                <div class="check_box">
-                    <i class="material-icons">check</i>
-                </div>
-                <div class="todo_text">
-                    <p>Build an Angular app</p>
-                </div>
-                <div class="action_btn">
-                    <div class="edit_btn">
-                        <i class="material-icons">edit</i>
-                    </div>
-                    <div class="edit_btn">
-                        <i class="material-icons">delete</i>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </div>
 </section>

@@ -10,12 +10,17 @@ import {NgForm} from '@angular/forms'
 })
 export class TodosComponent {
   todos:Todo[]=[];
+  txtLength='';
   constructor(private dataService: DataService){}
 
   ngOnInit():void{
     this.todos = this.dataService.todos;
   }
-  onFormSubmit(event: NgForm){
-    console.log(event);
+  onFormSubmit(forms: NgForm){
+    // console.log(forms);
+  this.txtLength = forms.value.text.length;
+  console.log(this.txtLength);
+    if(!forms.valid) return alert('Invalid fields'); 
+    this.dataService.addTodo(new Todo(forms.value.text));
   }
 }
